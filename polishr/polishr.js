@@ -6,5 +6,6 @@ $(document).ready(function(){
 });
 
 function reblogSmoother(){
-    $('.post_full, .post').has('blockquote blockquote').html('[Smoothed by Polishr]');
+    var posts = $('.post_full, .post').has('blockquote blockquote')
+    posts.html('[Smoothed by Polishr]');
 }
