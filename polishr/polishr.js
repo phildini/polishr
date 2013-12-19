@@ -1,7 +1,11 @@
 $(document).ready(function(){
     reblogSmoother();
+    polisher();
+    saveSettings();
+    loadSettings();
     $(window).scroll(function(){
         reblogSmoother();
+        polisher();
     });
     $('.polishr-show').on('click', showPost);
 });
@@ -35,4 +39,20 @@ function showPost(e){
         $(this.parentNode.parentNode).html('<p>[Smoothed by Polishr] <a href="javascript:void(0)" class="polishr-show" id="polishr_' + id +'">Show post</a></p>');
         $('.polishr-show').on('click', showPost);
     });
+}
+
+function polisher(){
+    $('.post.is_reblog').each(function(){
+        if ($(this).attr('data-tumblelog-name') == 'gameological') {
+            $(this).html('<p>[Smoothed by Polishr]</p>');
+        }
+    });
+}
+
+function saveSettings(){
+    localStorage['polishr'] = 'hello';
+}
+
+function loadSettings(){
+    console.log(localStorage['polishr']);
 }
